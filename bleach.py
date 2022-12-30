@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/python
+#!/usr/bin/python
 
 from lxml import html
 import requests, os, argparse, sys
