@@ -10,7 +10,7 @@ parser.add_argument('chapters', type=str, nargs='+')
 args = parser.parse_args()
 
 def extract(chapter):
-    url = 'https://ww3.readbleachmanga.com/chapter/bleach-digital-colored-comics-chapter-686/'
+    url = 'https://ww4.readbleachmanga.com/chapter/bleach-digital-colored-comics-chapter-686/'
     page = requests.get(url)
     tree = html.fromstring(page.content)
     manga = tree.xpath('//select/option/@value')[-chapter]
@@ -18,7 +18,7 @@ def extract(chapter):
     tree = html.fromstring(page.content)
 
     pics = tree.xpath('//div[@class="text-center"]/img/@src')
-    manga = tree.xpath('//div[@class="container px-3 mx-auto"]/h1/text()')[0].replace("/", " ")
+    manga = tree.xpath('//div[@class="container px-3 mx-auto mt-5"]/h1/text()')[0].replace("/", " ")
     try:
         os.mkdir(manga)
     except FileExistsError:
